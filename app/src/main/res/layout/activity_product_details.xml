@@ -178,7 +178,7 @@
             android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp"
             android:background="@drawable/ripple"
-            android:backgroundTint="@color/dark_orange"
+            android:backgroundTint="@color/purple_200"
             android:fontFamily="sans-serif"
             android:paddingLeft="30dp"
             android:paddingTop="-55dp"

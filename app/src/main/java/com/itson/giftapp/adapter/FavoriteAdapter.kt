@@ -37,7 +37,6 @@ class FavoriteAdapter(
                 R.layout.each_favorite, parent, false)
         return PlaceHolder(binding)
     }
-
     override fun onBindViewHolder(
         holder: PlaceHolder,
         position: Int

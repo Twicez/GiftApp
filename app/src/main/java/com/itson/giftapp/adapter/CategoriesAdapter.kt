@@ -51,7 +51,7 @@ class CategoriesAdapter(
             notifyDataSetChanged()
         }
         if (selectedItemPosition == position) {
-            item.buttonEachCategory.setBackgroundColor(Color.parseColor("#ff8f00"))
+            item.buttonEachCategory.setBackgroundColor(Color.parseColor("#FFBB86FC"))
             item.buttonEachCategory.setTextColor(ContextCompat.getColor(context, R.color.white))
         } else {
             item.buttonEachCategory.setBackgroundColor(Color.parseColor("#ffffff"))

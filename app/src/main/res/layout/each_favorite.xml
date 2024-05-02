@@ -131,7 +131,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:background="@drawable/ripple"
-                android:backgroundTint="@color/orange"
+                android:backgroundTint="@color/purple_200"
                 android:fontFamily="sans-serif"
                 android:insetTop="0dp"
                 android:insetBottom="0dp"
