@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity() {
                     beginTransaction(CartFragment())
                 }
                 R.id.action_profile -> {
-                    beginTransaction(ProfileFragment())
+                    redirectToLogin()
                 }
             }
             true
@@ -80,7 +80,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this@MainActivity, FriendsActivity::class.java))
         }
     }
-
+    private fun redirectToLogin() {
+        val intent = Intent(this@MainActivity, LoginActivity::class.java)
+        startActivity(intent)
+        finish() // Opcionalmente, puedes finalizar esta actividad para evitar que el usuario vuelva atrás con el botón de retroceso
+    }
     private fun beginTransaction(fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.frameLayout, fragment)

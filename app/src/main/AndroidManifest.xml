@@ -29,10 +29,24 @@
             android:theme="@style/Theme.Giftapp.NoActionBar"
             android:name="com.itson.giftapp.view.ProductDetailsActivity"
             android:exported="true" />
+        <!-- LoginActivity -->
         <activity
+            android:name="com.itson.giftapp.view.LoginActivity"
             android:theme="@style/SplashScreenTheme"
-            android:name="com.itson.giftapp.view.LogInActivity"
             android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.itson.giftapp.view.RegisterActivity"
+            android:theme="@style/SplashScreenTheme"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
         <activity
             android:theme="@style/Theme.Giftapp.NoActionBar"

@@ -79,29 +79,29 @@ class CategoryViewModel(application: Application) : BaseViewModel(application) {
         })
     }
     fun getFirstCategoryFromAPI(){
-         val api2 = Retrofit
+        val api2 = Retrofit
             .Builder()
             .baseUrl("https://dummyjson.com/products/category/")
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
             .create(ProductsAPI::class.java)
-            launch{
-                disposable.add(
-                    api2.getSmartPhonesFromAPI()
-                        .subscribeOn(Schedulers.newThread())
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribeWith(object : DisposableSingleObserver<BaseClass>() {
-                            override fun onError(e: Throwable?) {
-                                e?.printStackTrace()
-                            }
-                            override fun onSuccess(value: BaseClass?) {
-                                categorizedProducts.value = value?.products as ArrayList<Product>?
-                                println("inside of onSuccess")
-                            }
-                        })
-                )
-            }
+        launch{
+            disposable.add(
+                api2.getSmartPhonesFromAPI()
+                    .subscribeOn(Schedulers.newThread())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribeWith(object : DisposableSingleObserver<BaseClass>() {
+                        override fun onError(e: Throwable?) {
+                            e?.printStackTrace()
+                        }
+                        override fun onSuccess(value: BaseClass?) {
+                            categorizedProducts.value = value?.products as ArrayList<Product>?
+                            println("inside of onSuccess")
+                        }
+                    })
+            )
+        }
     }
     override fun onCleared() {
         super.onCleared()
