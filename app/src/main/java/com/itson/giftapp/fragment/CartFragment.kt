@@ -149,7 +149,8 @@ class CartFragment : Fragment() {
 
     fun checkOutProducts() {
         Log.d("CartFragment", "checkOutProducts() called")
-        val intent = Intent(requireContext(), FriendsActivity::class.java)
-        startActivity(intent)
+        startActivity(Intent(requireContext(), FriendsActivity::class.java))
     }
+
+
 }

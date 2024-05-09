@@ -38,7 +38,19 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+
         </activity>
+
+        <activity
+            android:name="com.itson.giftapp.view.ProfileActivity"
+            android:theme="@style/SplashScreenTheme"
+            android:exported="true" >
+        <intent-filter>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+        </activity>
+
         <activity
             android:name="com.itson.giftapp.view.RegisterActivity"
             android:theme="@style/SplashScreenTheme"

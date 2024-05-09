@@ -16,6 +16,7 @@ import com.itson.giftapp.utils.network.NetworkConnectivityObserver
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import com.itson.giftapp.data.UserRepository
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -31,17 +32,21 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Verifica si el usuario ha iniciado sesión
+        if (!UserRepository.isUserLoggedIn()) {
+            // Si no hay un usuario con sesión iniciada, redirige a la pantalla de inicio de sesión
+            redirectToLogin()
+            return
+        }
+
         val builder = AlertDialog.Builder(this@MainActivity)
         builder.setMessage("No Internet Connection")
         builder.setTitle("Attention!")
         builder.setCancelable(false)
         val alertDialog = builder.create()
         val x = Snackbar.make(
-            binding.frameLayout,
-            R.string.no_internet_connection,
-            Snackbar.LENGTH_INDEFINITE
+            binding.frameLayout, R.string.no_internet_connection, Snackbar.LENGTH_INDEFINITE
         )
-
         connectivityObserver = NetworkConnectivityObserver(applicationContext)
         connectivityObserver.observe().onEach {
             if (it == ConnectivityObserver.Status.Available) {
@@ -54,6 +59,7 @@ class MainActivity : AppCompatActivity() {
         }.launchIn(lifecycleScope)
 
         beginTransaction(homeFragment)
+
         binding.bottomNavigationView.setOnItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.action_home -> {
@@ -69,7 +75,8 @@ class MainActivity : AppCompatActivity() {
                     beginTransaction(CartFragment())
                 }
                 R.id.action_profile -> {
-                    redirectToLogin()
+                    val intent = Intent(this, ProfileActivity::class.java)
+                    startActivity(intent)
                 }
             }
             true
@@ -80,11 +87,13 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this@MainActivity, FriendsActivity::class.java))
         }
     }
+
     private fun redirectToLogin() {
         val intent = Intent(this@MainActivity, LoginActivity::class.java)
         startActivity(intent)
         finish() // Opcionalmente, puedes finalizar esta actividad para evitar que el usuario vuelva atrás con el botón de retroceso
     }
+
     private fun beginTransaction(fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.frameLayout, fragment)

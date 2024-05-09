@@ -5,65 +5,57 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.RegisterActivity">
-    <ImageButton
-        android:id="@+id/settingsButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="12dp"
-        android:src="@drawable/ic_settings"
-        app:layout_constraintEnd_toStartOf="@id/friendsButton"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/settingsLabel"
+        android:id="@+id/tvWelcomeMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ajustes"
-        app:layout_constraintTop_toBottomOf="@id/settingsButton"
-        app:layout_constraintEnd_toEndOf="@id/settingsButton"
-        app:layout_constraintStart_toStartOf="@id/settingsButton" />
-
-    <ImageButton
-        android:id="@+id/friendsButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="4dp"
-        android:src="@drawable/ic_friends"
+        android:layout_marginTop="32dp"
+        android:textColor="@android:color/white"
+        android:text="Bienvenido a gift - regístrate aquí!"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/friendsLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Amigos"
-        app:layout_constraintTop_toBottomOf="@id/friendsButton"
-        app:layout_constraintEnd_toEndOf="@id/friendsButton"
-        app:layout_constraintStart_toStartOf="@id/friendsButton" />
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/giftlogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvWelcomeMessage" />
+
     <EditText
         android:id="@+id/etName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:backgroundTint="@android:color/white"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/rounded_bg_white"
         android:hint="Name"
-        android:textColorHint="@android:color/white"
+        android:padding="8dp"
+        android:textColorHint="@android:color/darker_gray"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/ivLogo" />
 
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:backgroundTint="@android:color/white"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/rounded_bg_white"
         android:hint="Email"
-        android:textColorHint="@android:color/white"
         android:inputType="textEmailAddress"
+        android:padding="8dp"
+        android:textColorHint="@android:color/darker_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etName" />
@@ -72,11 +64,14 @@
         android:id="@+id/etPassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:backgroundTint="@android:color/white"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/rounded_bg_white"
         android:hint="Password"
-        android:textColorHint="@android:color/white"
         android:inputType="textPassword"
+        android:padding="8dp"
+        android:textColorHint="@android:color/darker_gray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etEmail" />
@@ -95,20 +90,12 @@
         android:id="@+id/tvLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="48dp"
         android:text="¿Ya tienes cuenta? Login"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnRegister" />
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:labelVisibilityMode="labeled"
-        app:itemIconTint="@drawable/selector_bottom_navigation"
-        app:itemTextColor="@drawable/selector_bottom_navigation"
-        app:menu="@menu/bottom_navigation_view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

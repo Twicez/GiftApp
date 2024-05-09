@@ -3,6 +3,7 @@ package com.itson.giftapp.view
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.itson.giftapp.data.UserRepository
 import com.itson.giftapp.databinding.ActivityLoginBinding
 import com.itson.giftapp.view.MainActivity
 
@@ -15,19 +16,15 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnLogin.setOnClickListener {
-            // Aquí implementa la lógica para iniciar sesión
             val email = binding.etEmail.text.toString()
             val password = binding.etPassword.text.toString()
 
-            // Aquí debes agregar la lógica para verificar las credenciales del usuario
-            // Si las credenciales son válidas, navega a la actividad principal
-            if (isValidCredentials(email, password)) {
+            if (UserRepository.loginUser(email, password)) {
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
                 finish()
             } else {
                 // Muestra un mensaje de error si las credenciales son incorrectas
-                // Por ejemplo, usando Toast o mostrando un TextView en el layout
             }
         }
 
